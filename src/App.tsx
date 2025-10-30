@@ -6,7 +6,7 @@ import Layout from './components/Layout';
 
 function App() {
   return (
-    <BrowserRouter>
+    <BrowserRouter basename="/statestream-home/">
       <Routes>
         <Route path="/" element={<Layout />}>
           <Route index element={<Home />} />
