@@ -212,7 +212,7 @@ deno task dev
           your application to work on.
         </p>
         <iframe
-          src="/animation/index.html"
+          src="animation/index.html"
           width="100%"
           height="800px"
           style={{ border: 'none', maxWidth: '1200px', margin: '0 auto', overflow: 'hidden' }}
