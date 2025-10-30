@@ -1,0 +1,21 @@
+{
+  "name": "paima-blockchain-engine",
+  "version": "1.0.0",
+  "description": "A blockchain animation engine demonstrating Statestream's multi-chain merging capabilities",
+  "main": "blockchain-engine.js",
+  "scripts": {
+    "start": "npx http-server ."
+  },
+  "keywords": [
+    "blockchain",
+    "animation",
+    "paima",
+    "multi-chain",
+    "visualization"
+  ],
+  "author": "Statestream Demo",
+  "license": "MIT",
+  "engines": {
+    "node": ">=12.0.0"
+  }
+} 
