@@ -1,0 +1,86 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Statestream - Blockchain Animation</title>
+    <link rel="stylesheet" href="src/style.css">
+</head>
+<body style="overflow: hidden;">
+    
+    <button style="display: none;" id="toggleConfigBtn" class="toggle-config-btn">⚙️</button>
+
+    <div class="controls hidden">
+        <h2>Blockchain Configuration</h2>
+        
+        <div class="main-controls">
+            <div class="preset-chains">
+                <h3>Add Popular Blockchain Chains</h3>
+                <div class="preset-buttons">
+                    <button class="preset-btn" data-name="XAI" data-time="0.2" data-type="probability">XAI (0.1s-0.3s)</button>
+                    <button class="preset-btn" data-name="Ethereum" data-time="12">Ethereum (12s)</button>
+                    <button class="preset-btn" data-name="Arbitrum" data-time="0.25">Arbitrum (0.25s)</button>
+                    <button class="preset-btn" data-name="Avail" data-time="2">Avail (20s)</button>
+                    <button class="preset-btn" data-name="Cardano" data-time="20">Cardano (20s)</button>
+                    <button class="preset-btn" data-name="Midnight" data-time="6">Midnight (6s)</button>
+                    <button class="preset-btn" data-name="Polygon" data-time="2">Polygon (2s)</button>
+                    <button class="preset-btn" data-name="Solana" data-time="2">Solana (2s)</button>
+                    <button class="preset-btn" data-name="Binance Smart Chain" data-time="0.75">BSC (0.75s)</button>
+                    <button class="preset-btn" data-name="Avalanche" data-time="2">Avalanche (2s)</button>
+                    <button class="preset-btn" data-name="Bitcoin" data-time="600">Bitcoin (10m)</button>
+                    <button class="preset-btn" data-name="Litecoin" data-time="150">Litecoin (2.5m)</button>
+                </div>
+            </div>
+            
+            <div class="control-buttons">
+                <button class="pause-btn" id="pauseBtn">⏸️ PAUSE</button>
+                <button class="clear-btn" id="clearBtn">🗑️ Clear All</button>
+                <button class="config-btn" id="configBtn">⚙️ Config</button>
+            </div>
+        </div>
+        
+        <div class="chain-list" id="chainList">
+            <!-- Chain items will be populated here -->
+        </div>
+        
+        <div class="custom-chain-section">
+            <button class="custom-chain-toggle" id="customChainToggle">+ Add Custom Chain</button>
+            
+            <div class="add-chain-form" id="addChainForm">
+                <div class="form-group">
+                    <label for="chainName">Chain Name</label>
+                    <input type="text" id="chainName" placeholder="Enter chain name" maxlength="20">
+                </div>
+                
+                <div class="form-group">
+                    <label for="blockTime">Block Time (seconds)</label>
+                    <input type="number" id="blockTime" placeholder="Block time" min="0.1" max="600" step="0.1">
+                </div>
+                
+                <button id="addChainBtn">Add Chain</button>
+            </div>
+            
+            <div id="errorMessage" class="error-message" style="display: none;"></div>
+        </div>
+    </div>
+    
+    <canvas id="animationCanvas" width="1200" height="1000"></canvas>
+    
+    <!-- Tooltip element -->
+    <div id="tooltip" class="tooltip" style="display: none;"></div>
+    
+    <div id="configModal" class="modal">
+        <div class="modal-content">
+            <span class="close-button" id="closeConfigModal">&times;</span>
+            <h2>Random Multipliers Configuration</h2>
+            <form id="configForm"></form>
+            <button id="saveConfigBtn">Save</button>
+        </div>
+    </div>
+  
+
+    <!-- Import the blockchain engine -->
+    <script type="module" src="src/main.js"></script>
+    
+</body>
+</html>
