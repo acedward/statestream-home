@@ -18,13 +18,13 @@ export class UserDevice {
 
         /* Color list */
         const colors = [
-            '#FFA680',
-            '#3375BB',
-            '#000000',
-            '#FFFFFF',
-            '#8A4DFF',
-            '#0052FF',
-            '#00A89D',
+            '#A7B4C4', // Light Blue-Grey
+            '#7689A9', // Medium Blue-Grey
+            '#4F86F7', // Bright Blue
+            '#FFFFFF', // White
+            '#5B86E5', // Statestream Blue
+            '#36D1DC', // Statestream Aqua
+            '#6C757D', // Grey
         ];
 
         this.color = colors[Math.floor(Math.random() * colors.length)];

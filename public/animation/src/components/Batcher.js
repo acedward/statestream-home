@@ -75,7 +75,7 @@ export class Batcher {
             ctx.stroke();
         }
 
-        ctx.fillStyle = this.ledOn ? COLORS.PRIMARY : COLORS.DARK_GREEN;
+        ctx.fillStyle = this.ledOn ? COLORS.PRIMARY : COLORS.DARK_BLUE;
         ctx.fillRect(this.x + 10, this.y + 10, 5, 5);
         
         ctx.fillStyle = COLORS.WHITE;

@@ -1,4 +1,4 @@
-# Paima Blockchain Engine
+# Statestream Blockchain Engine
 
 A modular blockchain animation engine that demonstrates Statestream's multi-chain merging capabilities. The engine logic is separated from the UI, allowing it to run in both web browsers and Node.js environments.
 
@@ -26,18 +26,18 @@ The project is split into clean, modular components:
 
 ### Multi-Chain Support
 - **Ethereum Chain**: 2-second fixed intervals
-- **Paima Chain**: 2-second fixed intervals (merges data from other chains)
+- **Statestream Chain**: 2-second fixed intervals (merges data from other chains)
 - **Solana Chain**: 3-second fixed intervals
 - **Polygon Chain**: Variable probability-based timing (250ms - 2000ms)
 
 ### Visual Features
 - **Block width proportional to timing**: Wider blocks = longer intervals
-- **Color-coded merging**: Grey blocks turn colorful when merged by Paima
+- **Color-coded merging**: Grey blocks turn colorful when merged by Statestream
 - **Smooth animations**: Blocks appear and move with scaling/opacity effects
 - **Real-time statistics**: Shows active chains and merge counts
 
 ### Engine Capabilities
-- **Merge detection**: Blocks ending within Paima boundaries get merged
+- **Merge detection**: Blocks ending within Statestream boundaries get merged
 - **Memory management**: Automatic cleanup of off-screen blocks
 - **Configurable timing**: Easy to add new blockchain types
 - **State tracking**: Complete blockchain state accessible for analysis
@@ -73,7 +73,7 @@ The project is split into clean, modular components:
 
 3. **What you'll see**:
    ```
-   🚀 Testing Paima Blockchain Engine in Node.js
+   🚀 Testing Statestream Blockchain Engine in Node.js
    
    📊 Initial state:
    - Blockchains configured: 4
@@ -83,8 +83,8 @@ The project is split into clean, modular components:
    ⏱️  Starting simulation...
    
    [000] Statestream: | 0 active merges | Block width ∝ time
-   [010] Statestream: Paima (2s), Ethereum (2s) | 2 active merges | Block width ∝ time
-     └─ Paima Chain: 3 blocks
+   [010] Statestream: Statestream (2s), Ethereum (2s) | 2 active merges | Block width ∝ time
+     └─ Statestream Chain: 3 blocks
      └─ Ethereum Chain: 3 blocks
    ```
 
@@ -131,10 +131,10 @@ timing: {
 
 The core merge rule is simple:
 ```
-If blockEnd >= paimaLeft AND blockEnd <= paimaRight → MERGE
+If blockEnd >= StatestreamLeft AND blockEnd <= StatestreamRight → MERGE
 ```
 
-This means blocks are merged if their **ending position** falls within the Paima block's boundaries, representing how Statestream captures and processes blockchain data that "completes" within its processing window.
+This means blocks are merged if their **ending position** falls within the Statestream block's boundaries, representing how Statestream captures and processes blockchain data that "completes" within its processing window.
 
 ## 🧪 Testing & Development
 

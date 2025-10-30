@@ -62,7 +62,7 @@ export class Chain {
         ctx.font = 'bold 16px Arial';
         ctx.textAlign = 'left';
         if (this.name === 'Statestream') {
-            ctx.fillText('Paima L2', 20, this.yPosition - 10);
+            ctx.fillText('Statestream L2', 20, this.yPosition - 10);
         } else {
             ctx.fillText(this.name, 20, this.yPosition - 10);
         }

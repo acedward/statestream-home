@@ -41,7 +41,7 @@ export class BlockProcessor {
         ctx.save();
 
         // Draw the main box
-        ctx.fillStyle = COLORS.BACKGROUND_LIGHT_GREEN;
+        ctx.fillStyle = COLORS.BACKGROUND_LIGHT;
         ctx.strokeStyle = COLORS.PRIMARY;
         ctx.lineWidth = 1;
         ctx.fillRect(boxX, boxY, boxWidth, boxHeight);

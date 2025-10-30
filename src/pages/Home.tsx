@@ -118,7 +118,7 @@ const Home = () => {
           <div className="statestream-item">
             <h3 className="subsection-title">It's Open Source</h3>
             <p>
-              Paima is an open-source framework that helps you build, launch and scale your
+              Statestream is an open-source framework that helps you build, launch and scale your
               decentralized applications. All our code is available on Github.
             </p>
             <div className="docs-link-container">

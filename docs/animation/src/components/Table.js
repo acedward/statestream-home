@@ -59,7 +59,7 @@ export class Table {
             // Subtle oscillating opacity for blink effect
             const blinkProgress = (Date.now() - this.blinkStartTime) / config.blinkDuration;
             const blinkOpacity = 0.15 + 0.1 * Math.abs(Math.sin(blinkProgress * Math.PI * 3)); // Reduced intensity and frequency
-            ctx.fillStyle = `rgba(25, 177, 123, ${blinkOpacity})`;
+            ctx.fillStyle = `rgba(79, 134, 247, ${blinkOpacity})`;
         } else {
             ctx.fillStyle = COLORS.LIGHTEST_GREY;
         }
@@ -117,8 +117,8 @@ export class Table {
             
             // Highlight newest row (index 0) with subtle glow - inset by 1px to stay inside border
             if (rowIndex === 0) {
-                ctx.fillStyle = 'rgba(25, 177, 123, 0.08)'; // More subtle
-                // ctx.fillStyle = COLORS.BACKGROUND_LIGHT_GREEN; // More subtle
+                ctx.fillStyle = 'rgba(79, 134, 247, 0.08)'; // More subtle
+                // ctx.fillStyle = COLORS.BACKGROUND_LIGHT; // More subtle
                 ctx.fillRect(this.x + 1, rowY - 10, config.width - 2, config.rowHeight);
             }
             

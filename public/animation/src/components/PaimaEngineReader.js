@@ -35,12 +35,12 @@ export class PaimaEngineReader {
         ctx.save();
 
         // Draw the main box
-        ctx.fillStyle = COLORS.BACKGROUND_LIGHT_GREEN;
+        ctx.fillStyle = COLORS.BACKGROUND_LIGHT;
         if (this.isBlinking) {
             this.blinkState += 0.05;
             const sinValue = Math.sin(this.blinkState);
             if (sinValue > 0) {
-                ctx.strokeStyle = COLORS.DARK_GREEN;
+                ctx.strokeStyle = COLORS.DARK_BLUE;
             } else {
                 ctx.strokeStyle = 'rgb(118, 231, 196)';
             }

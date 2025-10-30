@@ -57,7 +57,7 @@ export class ProcessedEvent {
                 this.path = [start, center, leftExit, finalTargetPos];
                 this.pathDurations = [500, 300, 1200];
             }
-            this.color = '#138a5e'; // Original Paima green
+            this.color = '#138a5e';
         }
 
         this.startTime = Date.now();
@@ -114,9 +114,9 @@ export class ProcessedEvent {
                         const eventToSql = new ProcessedEvent(this.action, this.action.targetTable, this.engine, { x: this.x, y: this.y });
                         this.engine.processedEvents.push(eventToSql);
                     }
-                    if (this.action.targetPaimaBlock) {
-                        const eventToPaima = new ProcessedEvent(this.action, this.action.targetPaimaBlock, this.engine, { x: this.x, y: this.y });
-                        this.engine.processedEvents.push(eventToPaima);
+                    if (this.action.targetStatestreamBlock) {
+                        const eventToStatestream = new ProcessedEvent(this.action, this.action.targetStatestreamBlock, this.engine, { x: this.x, y: this.y });
+                        this.engine.processedEvents.push(eventToStatestream);
                     }
                 }
 

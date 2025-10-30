@@ -66,7 +66,7 @@ export class CanvasRenderer {
         this.ctx.closePath();
 
         // Fill
-        this.ctx.fillStyle = COLORS.BACKGROUND_GREEN;
+        this.ctx.fillStyle = COLORS.BACKGROUND;
         this.ctx.fill();
 
         // Border
@@ -500,8 +500,10 @@ export class CanvasRenderer {
     // All the existing drawing methods remain the same...
     
     render() {
-        // Clear canvas
-        this.ctx.clearRect(0, 0, this.canvas.width, this.canvas.height);
+        if (!this.ctx) return;
+
+        this.ctx.fillStyle = COLORS.BACKGROUND;
+        this.ctx.fillRect(0, 0, this.canvas.width, this.canvas.height);
 
         // Draw divided background
         const splitY = 470;
