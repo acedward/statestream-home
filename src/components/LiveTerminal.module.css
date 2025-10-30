@@ -1,0 +1,154 @@
+.terminalContainer {
+  background-color: #1a1a1a73;
+  padding: 2rem;
+  border-radius: 8px;
+  font-family: 'Courier New', Courier, monospace;
+  position: relative;
+}
+
+.terminal {
+  background-color: #000;
+  color: #dcdcdc;
+  display: flex;
+  border: 1px solid #333;
+  height: 600px;
+  overflow: hidden;
+}
+
+.leftPane {
+  flex: 3;
+  padding: 10px;
+  overflow-y: scroll;
+  display: flex;
+  flex-direction: column;
+}
+
+.rightPane {
+  flex: 2;
+  border-left: 1px solid #333;
+  display: flex;
+  flex-direction: column;
+}
+
+.rightPaneHeader {
+  text-align: center;
+  padding: 5px;
+  background-color: #1e1e1e;
+  border-bottom: 1px solid #333;
+}
+
+.rightPaneControls {
+  padding: 5px 10px;
+}
+
+.processesContainer {
+  padding: 10px;
+  flex-grow: 1;
+  overflow-y: auto;
+}
+
+.processesHeader {
+  font-weight: bold;
+  margin-bottom: 5px;
+}
+
+.processListHeader {
+  font-weight: bold;
+  margin-top: 10px;
+  margin-bottom: 5px;
+  white-space: pre;
+}
+
+.processList {
+  display: flex;
+  flex-direction: column;
+}
+
+.processItem {
+  display: grid;
+  grid-template-columns: 30px 60px 150px 1fr;
+  align-items: center;
+  white-space: nowrap;
+  cursor: pointer;
+}
+
+.processItem:hover {
+  background-color: #333;
+}
+
+.processEnabled {
+  color: #00ff00;
+}
+
+.processDisabled {
+  color: #888;
+}
+
+.processArgs {
+  overflow: hidden;
+  text-overflow: ellipsis;
+  white-space: nowrap;
+}
+
+.processControls {
+  margin-top: auto;
+  padding-top: 10px;
+  font-size: 0.9em;
+  color: #aaa;
+}
+
+.logLine {
+  margin-bottom: 2px;
+  white-space: pre-wrap;
+  word-break: break-all;
+}
+
+.time {
+  color: #888;
+  margin-right: 10px;
+}
+
+.level {
+  color: #00ff00;
+  margin-right: 10px;
+}
+
+.module {
+  color: #000;
+  padding: 0 5px;
+  border-radius: 3px;
+  margin-right: 5px;
+}
+
+.moduleHardhat {
+  background-color: #ffff00; /* yellow */
+}
+
+.moduleHardhatParallel {
+  background-color: #00ffff; /* cyan */
+}
+
+.modulePaimaSync {
+  background-color: #ff00ff; /* magenta */
+}
+
+.moduleDolos {
+  background-color: #ff00ff; /* magenta */
+}
+
+.footer {
+  background-color: #008000;
+  color: #000;
+  display: flex;
+  padding: 2px 10px;
+  font-weight: bold;
+}
+
+.footer span {
+  margin-right: 20px;
+}
+
+.footerRight {
+  margin-left: auto;
+  margin-right: 0 !important;
+}
