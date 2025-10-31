@@ -24,7 +24,7 @@ import {
 const StatestreamName = () => (
   <>
     <span style={{ color: 'var(--sunglow)' }}>State</span>
-    <span>stream</span>
+    <span>s<span className="tr-box">tr</span>eam</span>
   </>
 );
 
