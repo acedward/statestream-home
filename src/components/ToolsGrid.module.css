@@ -1,0 +1,53 @@
+.grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(180px, 1fr));
+  gap: 1.5rem;
+  margin-top: 2rem;
+}
+
+.toolItem {
+  padding: 1.5rem;
+  border-radius: 8px;
+  text-align: center;
+  box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+  transition: all 0.2s ease-in-out;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+}
+
+.toolItem:hover {
+  transform: scale(1.05);
+  box-shadow: 0 8px 12px rgba(0, 0, 0, 0.15);
+}
+
+.toolName {
+  font-weight: bold;
+  font-size: 1.25rem;
+  margin-bottom: 0.5rem;
+}
+
+.toolDescription {
+  font-size: 0.9rem;
+}
+
+.legend {
+  display: flex;
+  justify-content: flex-start;
+  margin-top: 2rem;
+  flex-wrap: wrap;
+}
+
+.legendItem {
+  display: flex;
+  align-items: center;
+  margin-right: 2rem;
+  margin-bottom: 1rem;
+}
+
+.legendColor {
+  width: 20px;
+  height: 20px;
+  margin-right: 0.5rem;
+  border-radius: 4px;
+}

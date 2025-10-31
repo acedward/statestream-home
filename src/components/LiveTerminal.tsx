@@ -150,56 +150,58 @@ const LiveTerminal = () => {
   }, [logs]);
 
   return (
-    <div className={styles.terminalContainer}>
-      <div ref={topOfTerminalRef} style={{ position: 'absolute', top: 0, height: '1px', width: '100%', pointerEvents: 'none' }} />
-      <div className={styles.terminal}>
-        <div className={styles.leftPane} ref={leftPaneRef}>
-          {logs.map((log, index) => (
-            <div key={index} className={styles.logLine}>
-              <span className={styles.time}>{log.time}</span>
-              <span className={styles.level}>{log.level}</span>
-              {log.module && <span className={`${styles.module} ${getModuleStyle(log.module)}`}>{log.module}:</span>}
-              <span className={styles.message}>{log.message}</span>
+    <div className={styles.outerContainer}>
+      <div className={styles.terminalContainer}>
+        <div ref={topOfTerminalRef} style={{ position: 'absolute', top: 0, height: '1px', width: '100%', pointerEvents: 'none' }} />
+        <div className={styles.terminal}>
+          <div className={styles.leftPane} ref={leftPaneRef}>
+            {logs.map((log, index) => (
+              <div key={index} className={styles.logLine}>
+                <span className={styles.time}>{log.time}</span>
+                <span className={styles.level}>{log.level}</span>
+                {log.module && <span className={`${styles.module} ${getModuleStyle(log.module)}`}>{log.module}:</span>}
+                <span className={styles.message}>{log.message}</span>
+              </div>
+            ))}
+          </div>
+          <div className={styles.rightPane}>
+            <div className={styles.rightPaneHeader}>
+              <div>Statestream</div>
+              <div>Terminal UI - Version 0.1.0</div>
             </div>
-          ))}
+            <div className={styles.rightPaneControls}>
+              Press → arrows to navigate tabs, Ctrl+C to exit
+            </div>
+            <div className={styles.processesContainer}>
+              <div className={styles.processesHeader}>=== Running Processes ===</div>
+              <div>Last updated: 6:17:07 PM</div>
+              <div>Selected: tmux: ENABLED (Press SPACE to toggle)</div>
+              <div>All Processes: Some/All ENABLED (Press L to toggle all)</div>
+              <div className={styles.processListHeader}>[Log] PID Name Args</div>
+              <div className={styles.processList}>
+                {processes.map(p => (
+                  <div key={p.pid} className={styles.processItem} title={p.tooltip}>
+                    <span className={p.enabled ? styles.processEnabled : styles.processDisabled}>
+                      [{p.enabled ? '✔' : ' '}]
+                    </span>
+                    <span>{p.pid}</span>
+                    <span>{p.name}</span>
+                    <span className={styles.processArgs}>{p.args}</span>
+                  </div>
+                ))}
+              </div>
+              <div className={styles.processControls}>
+                Use ↑↓ arrows to navigate, SPACE to toggle selected, L to toggle all, R to restart sync
+              </div>
+            </div>
+          </div>
         </div>
-        <div className={styles.rightPane}>
-          <div className={styles.rightPaneHeader}>
-            <div>Statestream</div>
-            <div>Terminal UI - Version 0.1.0</div>
-          </div>
-          <div className={styles.rightPaneControls}>
-            Press → arrows to navigate tabs, Ctrl+C to exit
-          </div>
-          <div className={styles.processesContainer}>
-            <div className={styles.processesHeader}>=== Running Processes ===</div>
-            <div>Last updated: 6:17:07 PM</div>
-            <div>Selected: tmux: ENABLED (Press SPACE to toggle)</div>
-            <div>All Processes: Some/All ENABLED (Press L to toggle all)</div>
-            <div className={styles.processListHeader}>[Log] PID Name Args</div>
-            <div className={styles.processList}>
-              {processes.map(p => (
-                <div key={p.pid} className={styles.processItem} title={p.tooltip}>
-                  <span className={p.enabled ? styles.processEnabled : styles.processDisabled}>
-                    [{p.enabled ? '✔' : ' '}]
-                  </span>
-                  <span>{p.pid}</span>
-                  <span>{p.name}</span>
-                  <span className={styles.processArgs}>{p.args}</span>
-                </div>
-              ))}
-            </div>
-            <div className={styles.processControls}>
-              Use ↑↓ arrows to navigate, SPACE to toggle selected, L to toggle all, R to restart sync
-            </div>
-          </div>
+        <div className={styles.footer}>
+          <span>[P] Processes</span>
+          <span>[E] Environment</span>
+          <span>[H] Help</span>
+          <span className={styles.footerRight}>"Edwards-MacBook-Pro-2" 18:16 29-Oct-25</span>
         </div>
-      </div>
-      <div className={styles.footer}>
-        <span>[P] Processes</span>
-        <span>[E] Environment</span>
-        <span>[H] Help</span>
-        <span className={styles.footerRight}>"Edwards-MacBook-Pro-2" 18:16 29-Oct-25</span>
       </div>
     </div>
   );

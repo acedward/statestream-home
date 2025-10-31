@@ -134,7 +134,7 @@ export class BlockProcessor {
     getTooltipData() {
         return {
             title: 'Block Processor',
-            content: 'Processes events from merged blocks, validates and transforms contents into SQL data and generates Paima L2 Blocks.',
+            content: 'Processes events from merged blocks, validates and transforms contents into SQL data and generates Statestream L2 Blocks.',
             data: `Status: ${this.isAnimating ? 'Applying State Transformations' : 'Idle'}`
         };
     }

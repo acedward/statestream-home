@@ -1,13 +1,24 @@
-import { useState } from 'react';
+import { useState, useRef, useEffect } from 'react';
 import LiveTerminal from '../components/LiveTerminal';
 import CodeBlock from '../components/CodeBlock';
+import InfoSubtitle from '../components/InfoSubtitle';
+import KeywordTooltip from '../components/KeywordTooltip';
+import ToolsGrid from '../components/ToolsGrid';
+import VideoModal from '../components/VideoModal';
+import PlayIcon from '../components/PlayIcon';
 import {
-  URL_LEARN_MORE,
+  DOCS_BASE_URL,
+  URL_BUILD_W3_APPS,
   URL_CHAINS,
+  URL_SCALABLE_SECURE,
+  URL_OPEN_SOURCE,
+  URL_LOCAL_DEVELOPMENT,
+  URL_MADE_FOR_DEVS,
   URL_PROCESS_MANAGEMENT,
   URL_QUICK_START_GUIDE,
   URL_VISUALIZATION,
   URL_EXAMPLES,
+  URL_COMPONENTS,
 } from '../config';
 
 const StatestreamName = () => (
@@ -19,47 +30,55 @@ const StatestreamName = () => (
 
 const items = [
   {
-    title: 'Multi-Chain DeFi',
-    image: 'https://placehold.co/600x400/EEE/31343C?text=Multi-Chain+DeFi',
+    title: 'Cross-Chain Yield Aggregator',
+    image: 'images/yield.png',
     content: (
       <>
-        Build sophisticated DeFi applications that operate across multiple blockchains. This example
-        showcases a seamless token swap between an EVM chain and a ZK chain, maintaining a unified
-        user balance. <StatestreamName /> acts as a decentralized backend, monitoring both chains
-        and orchestrating cross-chain logic without a centralized intermediary, paving the way for
-        cross-chain DEXs and liquidity protocols.
+        Build a powerful DeFi dashboard that automatically finds and manages the best yield farming
+        opportunities for your assets across multiple blockchains. Provide users with a single,
+        unified view of their entire portfolio, optimizing their returns without requiring them to
+        manually bridge assets between different networks.
       </>
     ),
   },
   {
-    title: 'Confidential Asset Metadata with ZK',
-    image: 'https://placehold.co/600x400/EEE/31343C?text=ZK+Applications',
+    title: 'Confidential KYC for Decentralized Identity',
+    image: 'images/kyc.png',
     content:
-      'Leverage Zero-Knowledge proofs to build applications with confidential state. This example shows how a public asset on an EVM chain can have private metadata managed on a ZK chain. This pattern is perfect for applications like sealed-bid auctions, private voting systems, or any scenario where sensitive data needs to be processed off-chain and verified on-chain without being revealed.',
+      'Create a privacy-preserving identity solution for regulated DeFi. Users can prove they have completed KYC to access compliant financial products without publicly linking their real-world identity to their wallet address, ensuring both security and confidentiality.',
   },
   {
-    title: 'L2 Asset Trading on L1 Marketplaces',
-    image: 'https://placehold.co/600x400/EEE/31343C?text=L2+Asset+Liquidity',
+    title: 'Unified NFT Loyalty Programs',
+    image: 'images/loyalty.png',
     content: (
       <>
-        Unlock liquidity for assets generated within your L2 application. <StatestreamName />
-        's inverse projection standard allows assets that exist only in your L2's state to be
-        represented as tradable ERC721 or ERC1155 tokens on a major L1 chain. The token's
-        metadata is served dynamically from the <StatestreamName /> node, allowing L2 assets to be
-        traded on marketplaces like OpenSea without complex bridging.
+        Launch a seamless rewards program for a brand with multiple NFT collections spread across
+        different blockchains. <StatestreamName /> aggregates ownership data from all chains,
+        allowing you to create a single, unified loyalty experience for your entire community,
+        regardless of where they hold their assets.
       </>
     ),
   },
   {
-    title: 'Non-Custodial Asset Staking',
-    image: 'https://placehold.co/600x400/EEE/31343C?text=Non-Custodial+Staking',
+    title: 'Real-World Asset (RWA) Tokenization',
+    image: 'images/tokenization.png',
     content: (
       <>
-        Enhance security and user trust by eliminating risky asset bridging. The Hololocker
-        standard allows users to "project" their L1 assets into an L2 dApp non-custodially. Users
-        lock their assets in a smart contract on the L1, and <StatestreamName /> makes them usable
-        in the L2 state while the user retains full ownership. This is ideal for staking protocols
-        or any dApp where users need to interact with valuable L1 assets without bridging them.
+        Develop a platform to fractionalize high-value real-world assets, like real estate or art,
+        into tradable digital tokens. Manage the complex ownership and dividend logic efficiently
+        in a scalable L2 while allowing the fractional shares to be traded on liquid L1
+        marketplaces.
+      </>
+    ),
+  },
+  {
+    title: 'Cross-Chain Token Swap',
+    image: 'images/swap.png',
+    content: (
+      <>
+        Build sophisticated DeFi applications that operate across multiple blockchains. Create a
+        seamless token swap between an EVM chain and a ZK chain, maintaining a unified user
+        balance and paving the way for next-generation cross-chain DEXs and liquidity protocols.
       </>
     ),
   },
@@ -67,12 +86,58 @@ const items = [
 
 const Home = () => {
   const [selectedItem, setSelectedItem] = useState(items[0]);
+  const iframeRef = useRef<HTMLIFrameElement>(null);
+  const [isTerminalModalOpen, setIsTerminalModalOpen] = useState(false);
+  const [isQuickStartModalOpen, setIsQuickStartModalOpen] = useState(false);
+
+  const subtitleSegments = [
+    { text: 'Build ' },
+    {
+      text: 'Web3 Apps',
+      isKeyword: true,
+      tooltip:
+        'Decentralized applications built on blockchain technology, giving users more control over their data.',
+    },
+    { text: ' connecting ' },
+    {
+      text: 'multiple Blockchains',
+      isKeyword: true,
+      tooltip:
+        'Our engine allows you to seamlessly connect and interact with different blockchains, creating a unified experience.',
+    },
+    { text: ' in minutes.' },
+  ];
+
+  useEffect(() => {
+    const updateIframeHeight = () => {
+      if (iframeRef.current) {
+        if (window.innerWidth < 1068) {
+          const containerWidth = iframeRef.current.offsetWidth;
+          // The base ratio is 768 (height) / 922 (width)
+          const newHeight = containerWidth * (800 / 1000);
+          iframeRef.current.style.height = `${newHeight}px`;
+        } else {
+          // For screens >= 800px wide, use a fixed height.
+          iframeRef.current.style.height = '800px';
+        }
+      }
+    };
+
+    updateIframeHeight();
+    window.addEventListener('resize', updateIframeHeight);
+
+    return () => {
+      window.removeEventListener('resize', updateIframeHeight);
+    };
+  }, []);
 
   return (
     <div>
       <h1 className="main-title">
         <StatestreamName />
       </h1>
+
+      <InfoSubtitle segments={subtitleSegments} />
 
       <div className="my-16">
         <h2 className="section-title">
@@ -82,11 +147,14 @@ const Home = () => {
           <div className="statestream-item">
             <h3 className="subsection-title">Build Web3 Apps</h3>
             <p>
-              <StatestreamName /> allows you to build web3 applications in just days, even with a
-              web2 skillset. The engine handles the blockchain complexity.
+              <StatestreamName /> allows you to build web3 applications in just days, even with a{' '}
+              <KeywordTooltip tooltipText="Knowledge of traditional web development technologies like JavaScript, React, and Node.js, without needing deep blockchain expertise.">
+                web2 skillset
+              </KeywordTooltip>
+              . The engine handles the blockchain complexity.
             </p>
             <div className="docs-link-container">
-              <a href={URL_LEARN_MORE} className="docs-link">
+              <a href={DOCS_BASE_URL + URL_BUILD_W3_APPS} className="docs-link" target="_blank" rel="noopener noreferrer">
                 Learn more {'>'}
               </a>
             </div>
@@ -98,7 +166,7 @@ const Home = () => {
               unified experience for developers.
             </p>
             <div className="docs-link-container">
-              <a href={URL_CHAINS} className="docs-link">
+              <a href={DOCS_BASE_URL + URL_CHAINS} className="docs-link" target="_blank" rel="noopener noreferrer">
                 More about chains {'>'}
               </a>
             </div>
@@ -106,11 +174,26 @@ const Home = () => {
           <div className="statestream-item">
             <h3 className="subsection-title">Scalable & Secure</h3>
             <p>
-              <StatestreamName /> rollup offers scalability and fast transaction processing. Your
-              users' assets remain in their own wallets, minimizing risks.
+              <StatestreamName />{' '}
+              <KeywordTooltip tooltipText="A technology that bundles multiple transactions into a single one to reduce fees and congestion on the main blockchain.">
+                rollup
+              </KeywordTooltip>{' '}
+              offers scalability and fast{' '}
+              <KeywordTooltip tooltipText="An action, signed by a user, that changes the state of the blockchain.">
+                transaction
+              </KeywordTooltip>{' '}
+              processing. Your users'{' '}
+              <KeywordTooltip tooltipText="Digital items of value, such as cryptocurrencies or NFTs, that are owned and controlled by users.">
+                assets
+              </KeywordTooltip>{' '}
+              remain in their own{' '}
+              <KeywordTooltip tooltipText="A digital wallet used to store, send, and receive digital assets like cryptocurrencies and NFTs.">
+                wallets
+              </KeywordTooltip>
+              , minimizing risks.
             </p>
             <div className="docs-link-container">
-              <a href={URL_LEARN_MORE} className="docs-link">
+              <a href={DOCS_BASE_URL + URL_SCALABLE_SECURE} className="docs-link" target="_blank" rel="noopener noreferrer">
                 Learn more {'>'}
               </a>
             </div>
@@ -118,11 +201,14 @@ const Home = () => {
           <div className="statestream-item">
             <h3 className="subsection-title">It's Open Source</h3>
             <p>
-              Statestream is an open-source framework that helps you build, launch and scale your
-              decentralized applications. All our code is available on Github.
+              <StatestreamName /> is an open-source framework that helps you build, launch and scale your{' '}
+              <KeywordTooltip tooltipText="Applications that run on a peer-to-peer network of computers rather than a single central server, offering greater transparency and user control.">
+                decentralized applications
+              </KeywordTooltip>
+              . All our code is available on Github.
             </p>
             <div className="docs-link-container">
-              <a href={URL_LEARN_MORE} className="docs-link">
+              <a href={URL_OPEN_SOURCE} className="docs-link" target="_blank" rel="noopener noreferrer">
                 Learn more {'>'}
               </a>
             </div>
@@ -130,11 +216,14 @@ const Home = () => {
           <div className="statestream-item">
             <h3 className="subsection-title">Blockchain local development</h3>
             <p>
-              We provide all the tooling to run a full-fledge blockchain environment within your
-              computer, this allows you to iterate faster and catch bugs earlier.
+              We provide all the tooling to run a{' '}
+              <KeywordTooltip tooltipText="A complete local setup that mimics the behavior of a live blockchain, including nodes, miners, and explorers, for development and testing.">
+                full-fledge blockchain environment
+              </KeywordTooltip>{' '}
+              within your computer, this allows you to iterate faster and catch bugs earlier.
             </p>
             <div className="docs-link-container">
-              <a href={URL_LEARN_MORE} className="docs-link">
+              <a href={DOCS_BASE_URL + URL_LOCAL_DEVELOPMENT} className="docs-link" target="_blank" rel="noopener noreferrer">
                 Learn more {'>'}
               </a>
             </div>
@@ -146,7 +235,7 @@ const Home = () => {
               documentation to help you get started.
             </p>
             <div className="docs-link-container">
-              <a href={URL_LEARN_MORE} className="docs-link">
+              <a href={DOCS_BASE_URL + URL_MADE_FOR_DEVS} className="docs-link" target="_blank" rel="noopener noreferrer">
                 Learn more {'>'}
               </a>
             </div>
@@ -155,15 +244,32 @@ const Home = () => {
       </div>
 
       <div className="terminal-section my-32">
-        <h2 className="section-title">Statestream Terminal</h2>
+        <h2 className="section-title"><StatestreamName /> Terminal</h2>
         <p className="section-description">
           <StatestreamName /> launches the entire stack in your computer to develop multi-chain
           applications 100% locally.
         </p>
         <LiveTerminal />
-        <div className="docs-link-container">
-          <a href={URL_PROCESS_MANAGEMENT} className="docs-link">
+        <div className="docs-link-container button-and-link-container">
+          <button
+            onClick={() => setIsTerminalModalOpen(true)}
+            className="docs-link-button"
+          >
+            <PlayIcon />
+            Watch how the terminal works
+          </button>
+          <a href={DOCS_BASE_URL + URL_PROCESS_MANAGEMENT} className="docs-link" target="_blank" rel="noopener noreferrer">
             More about process managment {'>'}
+          </a>
+        </div>
+      </div>
+
+      <div className="my-32">
+        <h2 className="section-title">Some <StatestreamName /> tools and key processes it manages for you</h2>
+        <ToolsGrid />
+        <div className="docs-link-container">
+          <a href={DOCS_BASE_URL + URL_COMPONENTS} className="docs-link" target="_blank" rel="noopener noreferrer">
+            More about components {'>'}
           </a>
         </div>
       </div>
@@ -198,8 +304,15 @@ deno task build:midnight
 deno task dev
 `}
         />
-        <div className="docs-link-container">
-          <a href={URL_QUICK_START_GUIDE} className="docs-link">
+        <div className="docs-link-container button-and-link-container">
+          <button
+            onClick={() => setIsQuickStartModalOpen(true)}
+            className="docs-link-button"
+          >
+            <PlayIcon />
+            Watch how it works
+          </button>
+          <a href={DOCS_BASE_URL + URL_QUICK_START_GUIDE} className="docs-link" target="_blank" rel="noopener noreferrer">
             See the entire guide {'>'}
           </a>
         </div>
@@ -208,18 +321,22 @@ deno task dev
       <div className="animation-section my-32 text-center">
         <h2 className="section-title">Visualize how it works</h2>
         <p className="section-description">
-          <StatestreamName /> syncs multiple blockchains into one, and keeps a deterministic state for
-          your application to work on.
+          <StatestreamName /> syncs multiple blockchains into one, and keeps a{' '}
+          <KeywordTooltip tooltipText="A system where the same sequence of inputs will always produce the exact same output, ensuring consistency and predictability across the network.">
+            deterministic state
+          </KeywordTooltip>{' '}
+          for your application to work on.
         </p>
         <iframe
+          ref={iframeRef}
           src="animation/index.html"
           width="100%"
-          height="800px"
+          height="900px"
           style={{ border: 'none', maxWidth: '1200px', margin: '0 auto', overflow: 'hidden' }}
           title="Statestream Visualization"
         ></iframe>
         <div className="docs-link-container">
-          <a href={URL_VISUALIZATION} className="docs-link">
+          <a href={DOCS_BASE_URL + URL_VISUALIZATION} className="docs-link" target="_blank" rel="noopener noreferrer">
             Explore the visualization {'>'}
           </a>
         </div>
@@ -227,7 +344,7 @@ deno task dev
 
       <div className="my-32">
         <h2 className="section-title">
-          Examples of What can be build with Statestream
+          Examples of What can be build with <StatestreamName />
         </h2>
         <div className="what-is-statestream-layout">
           <div className="left-column">
@@ -253,11 +370,21 @@ deno task dev
           </div>
         </div>
         <div className="docs-link-container">
-          <a href={URL_EXAMPLES} className="docs-link">
+          <a href={DOCS_BASE_URL + URL_EXAMPLES} className="docs-link" target="_blank" rel="noopener noreferrer">
             See more examples {'>'}
           </a>
         </div>
       </div>
+      <VideoModal
+        isOpen={isTerminalModalOpen}
+        onClose={() => setIsTerminalModalOpen(false)}
+        videoSrc="https://drive.google.com/file/d/1aUbQ41sbCeg-rjGfEJK2LFEiAFeAwRLY/preview"
+      />
+      <VideoModal
+        isOpen={isQuickStartModalOpen}
+        onClose={() => setIsQuickStartModalOpen(false)}
+        videoSrc="https://drive.google.com/file/d/1VLlwMyEECt1bpMjtlXG36L3ZqETuSJwv/preview"
+      />
     </div>
   );
 };

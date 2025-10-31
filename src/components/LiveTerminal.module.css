@@ -1,7 +1,11 @@
-.terminalContainer {
-  background-color: #1a1a1a73;
+.outerContainer {
   padding: 2rem;
+  background-color: #1a1a1a73;
   border-radius: 8px;
+}
+
+.terminalContainer {
+  /* padding: 2rem; */
   font-family: 'Courier New', Courier, monospace;
   position: relative;
 }
@@ -22,6 +26,9 @@
   display: flex;
   flex-direction: column;
 }
+.leftPane::-webkit-scrollbar {
+  display: none;
+}
 
 .rightPane {
   flex: 2;
@@ -29,6 +36,7 @@
   display: flex;
   flex-direction: column;
 }
+
 
 .rightPaneHeader {
   text-align: center;
@@ -45,6 +53,9 @@
   padding: 10px;
   flex-grow: 1;
   overflow-y: auto;
+}
+.processesContainer::-webkit-scrollbar {
+  display: none;
 }
 
 .processesHeader {
