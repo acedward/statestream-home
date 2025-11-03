@@ -7,7 +7,7 @@ const Header = () => {
       <nav>
         <Link to="/">Home</Link>
         {/* <Link to="/changelog">Changelog</Link> */}
-        {/* <Link to="/roadmap">Roadmap</Link> */}
+        <Link to="/roadmap">Roadmap</Link>
         <a href="https://acedward.github.io/paima-v-next-docs/" target="_blank" rel="noopener noreferrer">Documentation</a>
       </nav>
 

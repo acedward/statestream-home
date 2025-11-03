@@ -90,22 +90,40 @@ const Home = () => {
   const [isTerminalModalOpen, setIsTerminalModalOpen] = useState(false);
   const [isQuickStartModalOpen, setIsQuickStartModalOpen] = useState(false);
 
+  // Build cross-chain DApps 
+  // and onchain infrastructure that seamlessly read and react to state across multiple blockchains 
+  // (EVM, Cardano, and others).
   const subtitleSegments = [
     { text: 'Build ' },
     {
-      text: 'Web3 Apps',
+      text: 'cross-chain',
+      isKeyword: true,
+      tooltip:
+        'Our engine allows you to seamlessly connect and interact with different blockchains, as Ethereum, Cardano, Avail, Midnight and more - creating a unified experience.',
+    },
+    { text: ' ' },
+    {
+      text: 'DApps',
       isKeyword: true,
       tooltip:
         'Decentralized applications built on blockchain technology, giving users more control over their data.',
     },
-    { text: ' connecting ' },
+    { text: ' and ' },
     {
-      text: 'multiple Blockchains',
+      text: 'on-chain infrastructure',
       isKeyword: true,
       tooltip:
-        'Our engine allows you to seamlessly connect and interact with different blockchains, creating a unified experience.',
+        'The core components of a decentralized application that operate directly on the blockchain, ensuring transparency and security.',
     },
-    { text: ' in minutes.' },
+    { text: ' that seamlessly ' },
+    {
+      text: 'read and react',
+      isKeyword: true,
+      tooltip:
+        'Our engine can monitor events on one blockchain and trigger actions on another, enabling dynamic cross-chain applications.',
+    },
+    { text: ' across multiple blockchains ' },
+    { text: 'within minutes.' },
   ];
 
   useEffect(() => {
