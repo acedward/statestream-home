@@ -21,9 +21,9 @@ import {
   URL_COMPONENTS,
 } from '../config';
 
-const StatestreamName = () => (
+const EffectstreamName = () => (
   <>
-    <span style={{ color: 'var(--sunglow)' }}>State</span>
+    <span style={{ color: 'var(--sunglow)' }}>Effect</span>
     <span>s<span className="tr-box">tr</span>eam</span>
   </>
 );
@@ -53,7 +53,7 @@ const items = [
     content: (
       <>
         Launch a seamless rewards program for a brand with multiple NFT collections spread across
-        different blockchains. <StatestreamName /> aggregates ownership data from all chains,
+        different blockchains. <EffectstreamName /> aggregates ownership data from all chains,
         allowing you to create a single, unified loyalty experience for your entire community,
         regardless of where they hold their assets.
       </>
@@ -152,7 +152,7 @@ const Home = () => {
   return (
     <div>
       <h1 className="main-title">
-        <StatestreamName />
+        <EffectstreamName />
       </h1>
 
       <InfoSubtitle segments={subtitleSegments} />
@@ -161,11 +161,11 @@ const Home = () => {
         <h2 className="section-title">
           
         </h2>
-        <div className="statestream-container">
-          <div className="statestream-item">
+        <div className="effectstream-container">
+          <div className="effectstream-item">
             <h3 className="subsection-title">Build Web3 Apps</h3>
             <p>
-              <StatestreamName /> allows you to build web3 applications in just days, even with a{' '}
+              <EffectstreamName /> allows you to build web3 applications in just days, even with a{' '}
               <KeywordTooltip tooltipText="Knowledge of traditional web development technologies like JavaScript, React, and Node.js, without needing deep blockchain expertise.">
                 web2 skillset
               </KeywordTooltip>
@@ -177,7 +177,7 @@ const Home = () => {
               </a>
             </div>
           </div>
-          <div className="statestream-item">
+          <div className="effectstream-item">
             <h3 className="subsection-title">Multi-Chain by Default</h3>
             <p>
               Deploy your application to connect multiple blockchains at once, providing a single
@@ -189,10 +189,10 @@ const Home = () => {
               </a>
             </div>
           </div>
-          <div className="statestream-item">
+          <div className="effectstream-item">
             <h3 className="subsection-title">Scalable & Secure</h3>
             <p>
-              <StatestreamName />{' '}
+              <EffectstreamName />{' '}
               <KeywordTooltip tooltipText="A technology that bundles multiple transactions into a single one to reduce fees and congestion on the main blockchain.">
                 rollup
               </KeywordTooltip>{' '}
@@ -216,10 +216,10 @@ const Home = () => {
               </a>
             </div>
           </div>
-          <div className="statestream-item">
+          <div className="effectstream-item">
             <h3 className="subsection-title">It's Open Source</h3>
             <p>
-              <StatestreamName /> is an open-source framework that helps you build, launch and scale your{' '}
+              <EffectstreamName /> is an open-source framework that helps you build, launch and scale your{' '}
               <KeywordTooltip tooltipText="Applications that run on a peer-to-peer network of computers rather than a single central server, offering greater transparency and user control.">
                 decentralized applications
               </KeywordTooltip>
@@ -231,7 +231,7 @@ const Home = () => {
               </a>
             </div>
           </div>
-          <div className="statestream-item">
+          <div className="effectstream-item">
             <h3 className="subsection-title">Blockchain local development</h3>
             <p>
               We provide all the tooling to run a{' '}
@@ -246,7 +246,7 @@ const Home = () => {
               </a>
             </div>
           </div>
-          <div className="statestream-item">
+          <div className="effectstream-item">
             <h3 className="subsection-title">Made for developers</h3>
             <p>
               We focus on providing the best developer experience, we provide a rich set of tools and
@@ -262,9 +262,9 @@ const Home = () => {
       </div>
 
       <div className="terminal-section my-32">
-        <h2 className="section-title"><StatestreamName /> Terminal</h2>
+        <h2 className="section-title"><EffectstreamName /> Terminal</h2>
         <p className="section-description">
-          <StatestreamName /> launches the entire stack in your computer to develop multi-chain
+          <EffectstreamName /> launches the entire stack in your computer to develop multi-chain
           applications 100% locally.
         </p>
         <LiveTerminal />
@@ -283,7 +283,7 @@ const Home = () => {
       </div>
 
       <div className="my-32">
-        <h2 className="section-title">Some <StatestreamName /> tools and key processes it manages for you</h2>
+        <h2 className="section-title">Some <EffectstreamName /> tools and key processes it manages for you</h2>
         <ToolsGrid />
         <div className="docs-link-container">
           <a href={DOCS_BASE_URL + URL_COMPONENTS} className="docs-link" target="_blank" rel="noopener noreferrer">
@@ -295,7 +295,7 @@ const Home = () => {
       <div className="my-32">
         <h2 className="section-title">Quick Start</h2>
         <p className="section-description">
-          You can quickly get started with <StatestreamName />, you can launch this working Demo in
+          You can quickly get started with <EffectstreamName />, you can launch this working Demo in
           just a few minutes or less.
         </p>
         <CodeBlock
@@ -317,7 +317,7 @@ deno install --allow-scripts && ./patch.sh
 deno task build:evm
 deno task build:midnight
 
-# Launch Statestream Node
+# Launch Effectstream Node
 
 deno task dev
 `}
@@ -339,7 +339,7 @@ deno task dev
       <div className="animation-section my-32 text-center">
         <h2 className="section-title">Visualize how it works</h2>
         <p className="section-description">
-          <StatestreamName /> syncs multiple blockchains into one, and keeps a{' '}
+          <EffectstreamName /> syncs multiple blockchains into one, and keeps a{' '}
           <KeywordTooltip tooltipText="A system where the same sequence of inputs will always produce the exact same output, ensuring consistency and predictability across the network.">
             deterministic state
           </KeywordTooltip>{' '}
@@ -351,7 +351,7 @@ deno task dev
           width="100%"
           height="900px"
           style={{ border: 'none', maxWidth: '1200px', margin: '0 auto', overflow: 'hidden' }}
-          title="Statestream Visualization"
+          title="Effectstream Visualization"
         ></iframe>
         <div className="docs-link-container">
           <a href={DOCS_BASE_URL + URL_VISUALIZATION} className="docs-link" target="_blank" rel="noopener noreferrer">
@@ -362,9 +362,9 @@ deno task dev
 
       <div className="my-32">
         <h2 className="section-title">
-          Examples of What can be build with <StatestreamName />
+          Examples of What can be build with <EffectstreamName />
         </h2>
-        <div className="what-is-statestream-layout">
+        <div className="what-is-effectstream-layout">
           <div className="left-column">
             <div className="item-selector">
               {items.map(item => (

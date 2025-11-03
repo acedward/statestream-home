@@ -22,8 +22,8 @@ export class UserDevice {
             '#7689A9', // Medium Blue-Grey
             '#4F86F7', // Bright Blue
             '#FFFFFF', // White
-            '#5B86E5', // Statestream Blue
-            '#36D1DC', // Statestream Aqua
+            '#5B86E5', // Effectstream Blue
+            '#36D1DC', // Effectstream Aqua
             '#6C757D', // Grey
         ];
 
@@ -83,7 +83,7 @@ export class UserDevice {
                 engine.userRequestParticles.push(particle);
                 animate();
             } else if (engine.blockchains && engine.blockchains.length > 0) {
-                const targetableChains = engine.blockchains.filter(bc => bc.name !== 'Statestream');
+                const targetableChains = engine.blockchains.filter(bc => bc.name !== 'Effectstream');
                 if (targetableChains.length > 0) {
                     const randomChain = targetableChains[Math.floor(Math.random() * targetableChains.length)];
                     const nowPosition = engine.blockProcessor.nowPosition;

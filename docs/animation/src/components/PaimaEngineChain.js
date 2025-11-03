@@ -4,9 +4,9 @@ import * as COLORS from '../colors.js';
 /**
  * @class PaimaEngineChain
  * @extends Chain
- * @description Represents the Statestream's specialized blockchain in the animation.
+ * @description Represents the Effectstream's specialized blockchain in the animation.
  * 
- * This class extends the generic `Chain` class to add functionality specific to the Statestream.
+ * This class extends the generic `Chain` class to add functionality specific to the Effectstream.
  * It is responsible for processing blocks from other secondary chains that fall within its
  * own block times. When it processes a secondary block, it triggers the creation of actions
  * from that block's events and initiates a color change animation on the block to signify
@@ -15,8 +15,8 @@ import * as COLORS from '../colors.js';
 export class PaimaEngineChain extends Chain {
     constructor(yPosition, lastBlockEndTime) {
         const timing = { type: 'fixed', interval: 1000 };
-        // This is offset is to make it draw inside the Statestream's block
-        super('Statestream', yPosition-40, timing, lastBlockEndTime);
+        // This is offset is to make it draw inside the Effectstream's block
+        super('Effectstream', yPosition-40, timing, lastBlockEndTime);
         this.color = () => COLORS.PRIMARY;
         this.id = 'paima-engine';
         this.currentMergeColorIndex = 0;

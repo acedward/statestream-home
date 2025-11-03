@@ -57,12 +57,12 @@ export class Chain {
     }
 
     drawLabel(ctx) {
-        const color = this.name === 'Statestream' ? COLORS.PRIMARY : COLORS.WHITE;
+        const color = this.name === 'Effectstream' ? COLORS.PRIMARY : COLORS.WHITE;
         ctx.fillStyle = color;
         ctx.font = 'bold 16px Arial';
         ctx.textAlign = 'left';
-        if (this.name === 'Statestream') {
-            ctx.fillText('Statestream L2', 20, this.yPosition - 10);
+        if (this.name === 'Effectstream') {
+            ctx.fillText('Effectstream L2', 20, this.yPosition - 10);
         } else {
             ctx.fillText(this.name, 20, this.yPosition - 10);
         }

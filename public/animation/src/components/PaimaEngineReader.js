@@ -3,7 +3,7 @@ import * as COLORS from '../colors.js';
 
 /**
  * @class PaimaEngineReader
- * @description Represents the Statestream Reader & Processor in the animation.
+ * @description Represents the Effectstream Reader & Processor in the animation.
  * This component symbolizes the layer that reads from different blockchains.
  */
 export class PaimaEngineReader {
@@ -55,7 +55,7 @@ export class PaimaEngineReader {
         ctx.fillStyle = COLORS.WHITE;
         ctx.font = 'bold 14px Arial';
         ctx.textAlign = 'center';
-        ctx.fillText('Statestream ', this.centerX, boxY + boxHeight + 20);
+        ctx.fillText('Effectstream ', this.centerX, boxY + boxHeight + 20);
 
         ctx.font = '12px Arial';
         ctx.fillText('Reader & Processor', this.centerX, boxY + boxHeight + 45);
@@ -79,8 +79,8 @@ export class PaimaEngineReader {
 
     getTooltipData() {
         return {
-            title: 'Statestream Reader & Processor',
-            content: 'This layer is responsible for reading data from various blockchains and processing it for the Statestream.',
+            title: 'Effectstream Reader & Processor',
+            content: 'This layer is responsible for reading data from various blockchains and processing it for the Effectstream.',
             data: 'Status: Idle'
         };
     }

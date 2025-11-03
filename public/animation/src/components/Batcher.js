@@ -25,7 +25,7 @@ export class Batcher {
     receiveRequest(engine) {
         this.requestsReceived++;
         // Find a random secondary chain
-        const secondaryChains = engine.blockchains.filter(bc => bc.name !== 'Statestream');
+        const secondaryChains = engine.blockchains.filter(bc => bc.name !== 'Effectstream');
 
         if (secondaryChains.length > 0) {
             const randomChain = secondaryChains[Math.floor(Math.random() * secondaryChains.length)];

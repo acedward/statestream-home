@@ -244,8 +244,8 @@ export class Block {
             if (eventY - dotSize / 2 < margin) return;
 
             // Draw event indicator dot
-            if (this.blockchain.name === 'Statestream') {
-                // darker green for Statestream
+            if (this.blockchain.name === 'Effectstream') {
+                // darker green for Effectstream
                 ctx.fillStyle = COLORS.PRIMARY;
             } else {
                 ctx.fillStyle = EventColors[event.type] || COLORS.WHITE;

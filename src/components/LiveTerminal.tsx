@@ -67,10 +67,10 @@ const generateLogEntry = () => {
 };
 
 const processes = [
-  { pid: 47477, name: 'tmux', args: 'tmux -L paima-1761772409651 -N attach', enabled: true, tooltip: 'This is the main tmux session for the Statestream.' },
+  { pid: 47477, name: 'tmux', args: 'tmux -L paima-1761772409651 -N attach', enabled: true, tooltip: 'This is the main tmux session for the Effectstream.' },
   { pid: 47492, name: 'collector', args: 'deno run -A --unstable-temporal @paima/collector/start', enabled: true, tooltip: 'The collector gathers data from various sources.' },
   { pid: 47496, name: 'pglite', args: 'deno run -A @paima/db/start-pglite --port 5432', enabled: true, tooltip: 'A lightweight Postgres instance for the database.' },
-  { pid: 47503, name: 'serve explorer', args: '[http://localhost:10590] deno task -f @paima/explorer serve...', enabled: true, tooltip: 'Serves the Statestream block explorer.' },
+  { pid: 47503, name: 'serve explorer', args: '[http://localhost:10590] deno task -f @paima/explorer serve...', enabled: true, tooltip: 'Serves the Effectstream block explorer.' },
   { pid: 47519, name: 'hardhat', args: 'deno task -f @e2e/evm-contracts chain:start', enabled: true, tooltip: 'Runs a local Hardhat EVM chain for development.' },
   { pid: 47521, name: 'avail-node', args: 'deno task -f @e2e/avail-contracts avail-node:start', enabled: true, tooltip: 'Runs a local Avail node for data availability.' },
   { pid: 47527, name: 'midnight-node', args: 'deno task -f @e2e/midnight-contracts midnight-node:start', enabled: false, tooltip: 'Runs a local Midnight node for private smart contracts.' },
@@ -80,7 +80,7 @@ const processes = [
   { pid: 47617, name: 'dolos', args: 'deno task -f @e2e/cardano-contracts dolos:start', enabled: true, tooltip: 'Cardano indexer.' },
   { pid: 47625, name: 'avail-light-client', args: 'deno task -f @e2e/avail-contracts avail-light-client:deploy', enabled: false, tooltip: 'Avail light client for data verification.' },
   { pid: 48598, name: 'batcher', args: 'deno task -f @e2e/batcher start', enabled: true, tooltip: 'Batches transactions to be submitted to the chain.' },
-  { pid: 48602, name: 'sync', args: 'deno task node:start', enabled: true, tooltip: 'Handles synchronization of the Statestream.' },
+  { pid: 48602, name: 'sync', args: 'deno task node:start', enabled: true, tooltip: 'Handles synchronization of the Effectstream.' },
 ];
 
 const getModuleStyle = (module: string) => {
@@ -166,7 +166,7 @@ const LiveTerminal = () => {
           </div>
           <div className={styles.rightPane}>
             <div className={styles.rightPaneHeader}>
-              <div>Statestream</div>
+              <div>Effectstream</div>
               <div>Terminal UI - Version 0.1.0</div>
             </div>
             <div className={styles.rightPaneControls}>

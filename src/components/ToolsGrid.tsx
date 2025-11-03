@@ -39,7 +39,7 @@ const tools = [
   },
   {
     name: 'Explorer',
-    description: 'Web UI to explore the Statestream state',
+    description: 'Web UI to explore the Effectstream state',
     color: '#3498db',
   },
   {
@@ -72,7 +72,7 @@ const tools = [
 const legendItems = [
   { color: '#1abc9c', label: 'Blockchains' },
   { color: '#3498db', label: 'DevOps Tools' },
-  { color: '#e74c3c', label: 'Statestream Engine' },
+  { color: '#e74c3c', label: 'Effectstream Engine' },
   { color: '#e67e22', label: 'Other' },
 ];
 

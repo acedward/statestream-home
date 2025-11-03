@@ -301,7 +301,7 @@ export class BlockchainEngine {
                     const targetTable = this.selectAppropriateTable(action);
                     action.targetTable = targetTable;
 
-                    const paimaChain = this.blockchains.find(bc => bc.name === 'Statestream');
+                    const paimaChain = this.blockchains.find(bc => bc.name === 'Effectstream');
                     if (paimaChain && paimaChain.blocks.length > 0) {
                         action.targetPaimaBlock = paimaChain.blocks[paimaChain.blocks.length - 1];
                     }

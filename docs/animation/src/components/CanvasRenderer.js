@@ -29,7 +29,7 @@ export class CanvasRenderer {
         this.eventLegend = new EventLegend(this.canvas.width - 165, this.canvas.height - 120);
         this.nowLine = new NowLine(this.canvas);
         
-        // Initialize the blockchain engine with only Statestream
+        // Initialize the blockchain engine with only Effectstream
         this.engine = new BlockchainEngine(this.canvas.width);
         
         // Initialize UI handlers
@@ -526,7 +526,7 @@ export class CanvasRenderer {
         this.ctx.font = 'bold 24px Arial';
         this.ctx.textAlign = 'center';
         this.ctx.shadowBlur = 0; // Clear any shadow effects
-        this.ctx.fillText('Statestream Core', this.canvas.width/2, 35);
+        this.ctx.fillText('Effectstream Core', this.canvas.width/2, 35);
         
         // Draw pause indicator
         if (this.isPaused) {

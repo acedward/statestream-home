@@ -177,8 +177,8 @@ const printIssues = async (issues: JiraIssue[]) => {
 const convertToHtml = (data: string[]) => {
     return data
     // TODO This is just a temporary fix to update the roadmap with the new name.
-    .map(item => item.match(/New Name for/) ? item : item.replace(/Paima Engine/g, "Statestream"))
-    .map(item => item.replace(/Paima Explorer/g, "Statestream Explorer"))
+    .map(item => item.match(/New Name for/) ? item : item.replace(/Paima Engine/g, "Effectstream"))
+    .map(item => item.replace(/Paima Explorer/g, "Effectstream Explorer"))
     .map(item => `${item.replaceAll(/[{}<>`]/g, "")}`).join("\n");
 }
 

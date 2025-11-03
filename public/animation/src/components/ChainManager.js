@@ -17,7 +17,7 @@ export class ChainManager {
         // This is again offset by the PaimaEngineChain's yPosition 
         this.chainStartY = 440;
 
-        // Start with only Statestream
+        // Start with only Effectstream
         const paimaChain = new PaimaEngineChain(this.chainStartY, 0);
         this.blockchains = [paimaChain];
     }

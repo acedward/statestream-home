@@ -1,6 +1,6 @@
-# Statestream Blockchain Engine
+# Effectstream Blockchain Engine
 
-A modular blockchain animation engine that demonstrates Statestream's multi-chain merging capabilities. The engine logic is separated from the UI, allowing it to run in both web browsers and Node.js environments.
+A modular blockchain animation engine that demonstrates Effectstream's multi-chain merging capabilities. The engine logic is separated from the UI, allowing it to run in both web browsers and Node.js environments.
 
 ## 🏗️ Architecture
 
@@ -15,7 +15,7 @@ The project is split into clean, modular components:
 ### Web UI (`index.html`)
 - **Canvas rendering**: Handles only drawing and visual effects
 - **Animation loop**: Manages frame updates and user interactions
-- **Responsive design**: Modern UI with Statestream branding
+- **Responsive design**: Modern UI with Effectstream branding
 
 ### Node.js Testing (`test-engine.js`)
 - **Headless simulation**: Test engine logic without browser
@@ -26,18 +26,18 @@ The project is split into clean, modular components:
 
 ### Multi-Chain Support
 - **Ethereum Chain**: 2-second fixed intervals
-- **Statestream Chain**: 2-second fixed intervals (merges data from other chains)
+- **Effectstream Chain**: 2-second fixed intervals (merges data from other chains)
 - **Solana Chain**: 3-second fixed intervals
 - **Polygon Chain**: Variable probability-based timing (250ms - 2000ms)
 
 ### Visual Features
 - **Block width proportional to timing**: Wider blocks = longer intervals
-- **Color-coded merging**: Grey blocks turn colorful when merged by Statestream
+- **Color-coded merging**: Grey blocks turn colorful when merged by Effectstream
 - **Smooth animations**: Blocks appear and move with scaling/opacity effects
 - **Real-time statistics**: Shows active chains and merge counts
 
 ### Engine Capabilities
-- **Merge detection**: Blocks ending within Statestream boundaries get merged
+- **Merge detection**: Blocks ending within Effectstream boundaries get merged
 - **Memory management**: Automatic cleanup of off-screen blocks
 - **Configurable timing**: Easy to add new blockchain types
 - **State tracking**: Complete blockchain state accessible for analysis
@@ -73,7 +73,7 @@ The project is split into clean, modular components:
 
 3. **What you'll see**:
    ```
-   🚀 Testing Statestream Blockchain Engine in Node.js
+   🚀 Testing Effectstream Blockchain Engine in Node.js
    
    📊 Initial state:
    - Blockchains configured: 4
@@ -82,9 +82,9 @@ The project is split into clean, modular components:
    
    ⏱️  Starting simulation...
    
-   [000] Statestream: | 0 active merges | Block width ∝ time
-   [010] Statestream: Statestream (2s), Ethereum (2s) | 2 active merges | Block width ∝ time
-     └─ Statestream Chain: 3 blocks
+   [000] Effectstream: | 0 active merges | Block width ∝ time
+   [010] Effectstream: Effectstream (2s), Ethereum (2s) | 2 active merges | Block width ∝ time
+     └─ Effectstream Chain: 3 blocks
      └─ Ethereum Chain: 3 blocks
    ```
 
@@ -131,10 +131,10 @@ timing: {
 
 The core merge rule is simple:
 ```
-If blockEnd >= StatestreamLeft AND blockEnd <= StatestreamRight → MERGE
+If blockEnd >= EffectstreamLeft AND blockEnd <= EffectstreamRight → MERGE
 ```
 
-This means blocks are merged if their **ending position** falls within the Statestream block's boundaries, representing how Statestream captures and processes blockchain data that "completes" within its processing window.
+This means blocks are merged if their **ending position** falls within the Effectstream block's boundaries, representing how Effectstream captures and processes blockchain data that "completes" within its processing window.
 
 ## 🧪 Testing & Development
 
@@ -165,7 +165,7 @@ Enable console logging by modifying the engine's merge detection function to add
 - Performance analysis of merge algorithms
 
 ### Presentation
-- Live demos of Statestream capabilities
+- Live demos of Effectstream capabilities
 - Interactive blockchain visualizations
 - Technical presentations with real-time animation
 
@@ -189,4 +189,4 @@ Enable console logging by modifying the engine's merge detection function to add
 
 ---
 
-**Built for Statestream** - Demonstrating multi-chain blockchain merging and data processing capabilities. 
+**Built for Effectstream** - Demonstrating multi-chain blockchain merging and data processing capabilities. 

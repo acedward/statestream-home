@@ -5,7 +5,7 @@ PE-17 - Production Deployment Tools
 PE-37 - Remove Patch.sh
   PE-1 - Patch fetch-block/from.js (where this comes from?)
   PE-30 - Deno Hardhat (Ignition) 3 Support https://github.com/NomicFoundation/hardhat/issues/7473
-PE-41 - Statestream Core V2 Improvements
+PE-41 - Effectstream Core V2 Improvements
   PE-10 - Scheduled blocks and timed block should be sorted by ID before running
   PE-20 - Implement missing RPC (eip1193.ts) endpoints
   PE-50 - Database Snapshots (auto generate and restore on demand)
@@ -34,7 +34,7 @@ PE-44 - Cardano Support
   PE-168 - Dolos 1.0.0 Beta Crash https://github.com/txpipe/dolos/issues/774
 PE-45 - Avail Support
   PE-132 - Fix Avail for Linux
-PE-46 - Statestream Explorer V1
+PE-46 - Effectstream Explorer V1
   PE-28 - Make Explorer Responsive
   PE-36 - Vite/esbuild stuck at first launch PE-84 (dup)
   PE-116 - Support for large tables
@@ -43,8 +43,8 @@ PE-46 - Statestream Explorer V1
   PE-141 - explorer: average block time is not correct
   PE-142 - explorer: not all blocks are displayed
 PE-47 - Documentation
-  PE-6 - Implement What is Statestream Interactive Video
-PE-48 - Statestream V2 Tooling & DevOps Improvements
+  PE-6 - Implement What is Effectstream Interactive Video
+PE-48 - Effectstream V2 Tooling & DevOps Improvements
   PE-25 - JSR Package cleanup when "import with  type: text " is available (PE-84)
   PE-84 - esbuild hangup @ macos https://github.com/evanw/esbuild/issues/4260
   PE-97 - deno JSR with  type: text  support https://github.com/denoland/deno/issues/29904
@@ -62,7 +62,7 @@ PE-48 - Statestream V2 Tooling & DevOps Improvements
   PE-166 - zkir is not working on docker with mac host (Compiling 7 circuits: Exception: zkir returned a non-zero exit status -4)
   PE-169 - OTEL: Clean up console.logs at @paima packages. Optionally send telemetry data per-process. Orchestrator pushes logs to TUI.
   PE-170 - OTEL: Setup Logger Files (e.g., as Loki)
-PE-64 - Statestream V2 Web - SDK
+PE-64 - Effectstream V2 Web - SDK
   PE-104 - Dynamic loading of wallet dependencies
   PE-106 - Wallets : Type Check sendTransaction to match Grammar
   PE-107 - Wallets : Clean up "Deno" usage from packages

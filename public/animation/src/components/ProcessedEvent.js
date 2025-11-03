@@ -6,7 +6,7 @@ import { Block } from './Block.js';
  * 
  * This class manages the multi-stage journey of a processed event. It visualizes the event's
  * path from an `Action` to the `BlockProcessor`, and then from the processor to either an
- * SQL table or a Statestream block. The particle's movement is defined by a series of
+ * SQL table or a Effectstream block. The particle's movement is defined by a series of
  * path segments with specific durations, creating a guided animation through the system.
  */
 export class ProcessedEvent {
@@ -114,9 +114,9 @@ export class ProcessedEvent {
                         const eventToSql = new ProcessedEvent(this.action, this.action.targetTable, this.engine, { x: this.x, y: this.y });
                         this.engine.processedEvents.push(eventToSql);
                     }
-                    if (this.action.targetStatestreamBlock) {
-                        const eventToStatestream = new ProcessedEvent(this.action, this.action.targetStatestreamBlock, this.engine, { x: this.x, y: this.y });
-                        this.engine.processedEvents.push(eventToStatestream);
+                    if (this.action.targetEffectstreamBlock) {
+                        const eventToEffectstream = new ProcessedEvent(this.action, this.action.targetEffectstreamBlock, this.engine, { x: this.x, y: this.y });
+                        this.engine.processedEvents.push(eventToEffectstream);
                     }
                 }
 

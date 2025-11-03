@@ -1,7 +1,7 @@
 {
-  "name": "paima-blockchain-engine",
+  "name": "effectstream-engine",
   "version": "1.0.0",
-  "description": "A blockchain animation engine demonstrating Statestream's multi-chain merging capabilities",
+  "description": "A blockchain animation engine demonstrating Effectstream's multi-chain merging capabilities",
   "main": "blockchain-engine.js",
   "scripts": {
     "start": "npx http-server ."
@@ -13,7 +13,7 @@
     "multi-chain",
     "visualization"
   ],
-  "author": "Statestream Demo",
+  "author": "Effectstream Demo",
   "license": "MIT",
   "engines": {
     "node": ">=12.0.0"
