@@ -94,7 +94,7 @@ const Home = () => {
   // and onchain infrastructure that seamlessly read and react to state across multiple blockchains 
   // (EVM, Cardano, and others).
   const subtitleSegments = [
-    { text: 'Build ' },
+    { text: 'Quickly build ' },
     {
       text: 'cross-chain',
       isKeyword: true,
@@ -122,8 +122,7 @@ const Home = () => {
       tooltip:
         'Our engine can monitor events on one blockchain and trigger actions on another, enabling dynamic cross-chain applications.',
     },
-    { text: ' across multiple blockchains ' },
-    { text: 'within minutes.' },
+    { text: ' across multiple blockchains.' },
   ];
 
   useEffect(() => {
