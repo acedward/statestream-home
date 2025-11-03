@@ -5,7 +5,7 @@ import Roadmap from './pages/Roadmap';
 
 function App() {
   return (
-    <BrowserRouter basename="/statestream-home/">
+    <BrowserRouter basename="/home/">
       <Routes>
         <Route path="/" element={<Layout />}>
           <Route index element={<Home />} />

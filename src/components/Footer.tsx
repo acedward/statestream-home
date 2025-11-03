@@ -13,7 +13,7 @@ const Footer = () => {
             <h4>Support</h4>
             <ul>
               <li><a href="#">Support</a></li>
-              <li><a href="https://acedward.github.io/paima-v-next-docs/" target="_blank" rel="noopener noreferrer">Docs</a></li>
+              <li><a href="https://effectstream.github.io/docs/" target="_blank" rel="noopener noreferrer">Docs</a></li>
               <li><a href="https://github.com/PaimaStudios/paima-engine" target="_blank" rel="noopener noreferrer">GitHub</a></li>
             </ul>
           </div>

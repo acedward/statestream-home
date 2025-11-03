@@ -8,7 +8,7 @@ const Header = () => {
         <Link to="/">Home</Link>
         {/* <Link to="/changelog">Changelog</Link> */}
         <Link to="/roadmap">Roadmap</Link>
-        <a href="https://acedward.github.io/paima-v-next-docs/" target="_blank" rel="noopener noreferrer">Documentation</a>
+        <a href="https://effectstream.github.io/docs/" target="_blank" rel="noopener noreferrer">Documentation</a>
       </nav>
 
       <GitHubButton 

@@ -1,6 +1,6 @@
 export const PRODUCT_NAME = 'Effectstream';
 
-export const DOCS_BASE_URL = 'https://acedward.github.io/paima-v-next-docs';
+export const DOCS_BASE_URL = 'https://effectstream.github.io/docs';
 export const URL_GITHUB = 'https://github.com/PaimaStudios/paima-engine';
 
 export const URL_BUILD_W3_APPS = '/';
