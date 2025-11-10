@@ -8,6 +8,7 @@ import { Buffer } from 'node:buffer';
 
 const API_KEY = Deno.env.get('API_KEY');
 const email = Deno.env.get('EMAIL');
+const INTERNAL = !!Deno.env.get('INTERNAL');
 
 const encodeBase64 = (email: string, API_KEY: string) => {
     return Buffer.from(`${email}:${API_KEY}`).toString('base64');
@@ -129,10 +130,20 @@ const printIssues = async (issues: JiraIssue[]) => {
     const issueMap = new Map<string, JiraIssue>(issues.map(issue => [issue.key, issue]));
     const childrenMap = new Map<string, JiraIssue[]>();
 
+    const skipIssues = [
+        "PE-194",
+        "PE-126",
+        "PE-87",
+        "PE-171",
+        "PE-180",
+    ];
+
     for (const issue of issues) {
         if (issue.fields.parent) {
-            if (issue.fields.parent.key === "PE-126" || issue.fields.parent.key === "PE-87") {
-                // skip these as they have client names.
+            if (INTERNAL) {
+                // do not skip
+            } else if (skipIssues.includes(issue.fields.parent.key)) {
+                // skip these as they have sensitive information.
                 continue;
             }
             const parentKey = issue.fields.parent.key;
@@ -143,7 +154,17 @@ const printIssues = async (issues: JiraIssue[]) => {
         }
     }
 
-    const rootIssues = issues.filter(issue => !issue.fields.parent || !issueMap.has(issue.fields.parent.key));
+    const rootIssues = issues
+        .filter(issue => !issue.fields.parent || !issueMap.has(issue.fields.parent.key))
+        .filter(issue => {
+            console.log(">", issue.key, !!INTERNAL);
+            if (INTERNAL) {
+                return true;
+            } else if (skipIssues.includes(issue.key)) {
+                return false;
+            }
+            return true;
+        });
 
     const sortIssues = (issueList: JiraIssue[]) => {
         return issueList.sort((a, b) => a.key.localeCompare(b.key, undefined, { numeric: true }));
@@ -176,9 +197,6 @@ const printIssues = async (issues: JiraIssue[]) => {
 
 const convertToHtml = (data: string[]) => {
     return data
-    // TODO This is just a temporary fix to update the roadmap with the new name.
-    .map(item => item.match(/New Name for/) ? item : item.replace(/Paima Engine/g, "Effectstream"))
-    .map(item => item.replace(/Paima Explorer/g, "Effectstream Explorer"))
     .map(item => `${item.replaceAll(/[{}<>`]/g, "")}`).join("\n");
 }
 
@@ -187,7 +205,10 @@ const main = async () => {
     await writeIssues(issues);
     const data = await printIssues(issues);
     console.log(convertToHtml(data));
-    Deno.writeTextFile("src/pages/roadmap-data.ts", `export const roadmap = \`\n${convertToHtml(data)}\n\`;`);
+    if (!INTERNAL) {
+      Deno.writeTextFile("src/pages/roadmap-data.ts", `export const roadmap = \`\n${convertToHtml(data)}\n\`;`);
+      console.log("Saved roadmap to src/pages/roadmap-data.ts");
+    }
 }
 
 await main();
